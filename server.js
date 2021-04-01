@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(errorHandler());
 
+// mount apiRouter
+const apiRouter = require('./routes/index');
+app.use('/api/', apiRouter);
+
 // start app listening
 const PORT = process.env.PORT || 4000;
 app.listen(PORT);
